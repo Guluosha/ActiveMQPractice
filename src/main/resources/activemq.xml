@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:jms="http://www.springframework.org/schema/jms"
+	   xsi:schemaLocation="
+	   	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd
+">
+
+	<context:property-placeholder location="classpath*:*.properties" file-encoding="UTF-8"/>
+	<context:component-scan base-package="com.oreo.activemqwithspring,com.oreo.activemqwithmanual"/>
+	<jms:annotation-driven/>
+
+	<bean id="activeMQConnectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="${BrokerURL}"/>
+		<property name="userName" value="${userName}"/>
+		<property name="password" value="${userPassword}"/>
+	</bean>
+	<bean id="jmsCachingConnectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+		<property name="targetConnectionFactory" ref="activeMQConnectionFactory"/>
+		<property name="sessionCacheSize" value="${sessionCachingSize}"/>
+		<property name="reconnectOnException" value="true"/>
+	</bean>
+	<!--
+	<bean id="jmsSingleConnectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+		<property name="targetConnectionFactory" ref="activeMQConnectionFactory"/>
+		<property name="reconnectOnException" value="true"/>
+	</bean>
+	-->
+
+	<bean id="queue" class="org.apache.activemq.command.ActiveMQQueue">
+		<property name="physicalName" value="${QueueName}"/>
+	</bean>
+
+	<bean id="topic" class="org.apache.activemq.command.ActiveMQTopic">
+		<property name="physicalName" value="${TopicName}"/>
+	</bean>
+
+	<bean id="jmsQueueTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<constructor-arg name="connectionFactory" ref="jmsCachingConnectionFactory"/>
+		<property name="defaultDestination" ref="queue"/>
+		<property name="pubSubDomain" value="false"/>
+	</bean>
+	<bean id="jmsTopicTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<constructor-arg name="connectionFactory" ref="jmsCachingConnectionFactory"/>
+		<property name="pubSubDomain" value="true"/>
+		<property name="defaultDestination" ref="topic"/>
+	</bean>
+
+	<!--所谓的消息驱动POJO/Bean(即：MDP或者MDB)，意思就是用POJO来处理队列中的消息，而不是使用模板来处理，这样灵活性更高，处理消息的职责也更明确-->
+	<jms:listener-container connection-factory="jmsCachingConnectionFactory">
+		<jms:listener destination="${QueueName}" ref="sampleConsumer" method="disPlayMessage"/>
+	</jms:listener-container>
+</beans>

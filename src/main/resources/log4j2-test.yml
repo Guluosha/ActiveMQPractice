@@ -1,0 +1,25 @@
+Configuration:
+  name: ActiveMQLog
+  status: debug
+  thresholdFilter:
+    level: debug
+  appenders:
+    Console:
+      name: ConsoleAppender
+      Filters:
+        ThresholdFilter:
+          level: debug
+      PatternLayout:
+        Pattern: "%d{yyyy-MM-dd-HH:mm:ss.SSS} | 日志级别：%p | 线程名：%t | 类全限定名：%c | 调用的方法：%M | 方法执行行号：%L | %m%n"
+
+  Loggers:
+    logger:
+      -
+        name: debugInfo
+        level: debug
+        AppenderRef:
+          ref: ConsoleAppender
+    Root:
+      level: debug
+      AppenderRef:
+        ref: ConsoleAppender
