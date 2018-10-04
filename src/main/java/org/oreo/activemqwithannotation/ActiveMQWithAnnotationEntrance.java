@@ -1,10 +1,8 @@
 package org.oreo.activemqwithannotation;
 
-import com.oreo.activemqwithannotation.config.ActiveMQConfiguration;
-import org.apache.activemq.spring.ActiveMQConnectionFactory;
+import org.apache.activemq.spring.*;
 import org.oreo.activemqwithannotation.config.*;
-import org.oreo.observersubscribe.activemqwithannotation.config.*;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.*;
 
 /**
  * CopyRight (C),YLINK-深圳雁联计算有限公司

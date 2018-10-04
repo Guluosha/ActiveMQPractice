@@ -15,7 +15,7 @@ import org.springframework.jms.core.JmsTemplate;
 @Configuration
 @EnableAspectJAutoProxy
 @PropertySource(value = {"classpath*:*.properties"}, encoding = "utf-8", ignoreResourceNotFound = true)
-@ComponentScan(basePackages = {"com.oreo.activemqwithannotation"})
+@ComponentScan(basePackages = {"org.oreo.activemqwithannotation"})
 public class ActiveMQConfiguration {
 
 	@Bean

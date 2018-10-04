@@ -1,13 +1,11 @@
 package org.oreo.activemqwithannotation.producer;
 
-import com.oreo.activemqwithannotation.interfaces.AlertService;
 import org.oreo.activemqwithannotation.interfaces.*;
-import org.oreo.observersubscribe.activemqwithannotation.interfaces.*;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.jms.core.JmsOperations;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.jms.core.*;
+import org.springframework.stereotype.*;
 
-import javax.annotation.Resource;
+import javax.annotation.*;
 
 /**
  * CopyRight (C),YLINK-深圳雁联计算有限公司
