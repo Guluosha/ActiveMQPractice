@@ -1,4 +1,4 @@
-package com.oreo.activemqwithspring;
+package org.oreo.activemqwithspring.producer;
 
 /**
  * CopyRight (C),YLINK-深圳雁联计算有限公司
@@ -7,5 +7,5 @@ package com.oreo.activemqwithspring;
  * @date 2018/3/16 ~ 下午 3:10
  */
 
-public class MQSpringEntrance {
+public class SampleProducer {
 }

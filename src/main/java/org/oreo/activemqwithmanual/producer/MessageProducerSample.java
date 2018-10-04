@@ -1,4 +1,4 @@
-package com.oreo.activemqwithmanual.producer;
+package org.oreo.activemqwithmanual.producer;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;

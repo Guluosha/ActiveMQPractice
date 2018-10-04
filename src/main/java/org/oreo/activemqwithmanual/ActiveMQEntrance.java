@@ -1,10 +1,12 @@
-package com.oreo.activemqwithmanual;
+package org.oreo.activemqwithmanual;
 
 import com.oreo.activemqwithmanual.service.AlertServiceImpl;
 import com.oreo.activemqwithmanual.service.ConsumerServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.xbean.spring.context.ClassPathXmlApplicationContext;
+import org.oreo.activemqwithmanual.service.*;
+import org.oreo.observersubscribe.activemqwithmanual.service.*;
 
 /**
  * CopyRight (C),YLINK-深圳雁联计算有限公司

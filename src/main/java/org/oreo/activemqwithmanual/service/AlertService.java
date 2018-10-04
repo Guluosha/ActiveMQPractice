@@ -1,4 +1,4 @@
-package com.oreo.activemqwithmanual.service;
+package org.oreo.activemqwithmanual.service;
 
 /**
  * CopyRight (C),YLINK-深圳雁联计算有限公司

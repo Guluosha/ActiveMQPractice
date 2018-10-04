@@ -1,4 +1,4 @@
-package com.oreo.activemqwithspring.consumer;
+package org.oreo.activemqwithspring.consumer;
 
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package com.oreo.activemqwithmanual.service;
+package org.oreo.activemqwithmanual.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsOperations;

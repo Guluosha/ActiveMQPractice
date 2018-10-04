@@ -1,4 +1,4 @@
-package com.oreo.activemqwithannotation.interfaces;
+package org.oreo.activemqwithannotation.interfaces;
 
 /**
  * CopyRight (C),YLINK-深圳雁联计算有限公司

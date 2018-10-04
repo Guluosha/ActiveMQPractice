@@ -1,6 +1,8 @@
-package com.oreo.activemqwithannotation.producer;
+package org.oreo.activemqwithannotation.producer;
 
 import com.oreo.activemqwithannotation.interfaces.AlertService;
+import org.oreo.activemqwithannotation.interfaces.*;
+import org.oreo.observersubscribe.activemqwithannotation.interfaces.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsOperations;
 import org.springframework.stereotype.Component;

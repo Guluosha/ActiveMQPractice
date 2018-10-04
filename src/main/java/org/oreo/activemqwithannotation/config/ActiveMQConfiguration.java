@@ -1,4 +1,4 @@
-package com.oreo.activemqwithannotation.config;
+package org.oreo.activemqwithannotation.config;
 
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
